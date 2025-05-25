@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-#from agents.crew_format.main import run
+
+from agents.crew_format.crew import Sentiment
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -23,7 +24,13 @@ def greet(name: str = "World"):
 
 @app.post("/run/")
 async def run(inputs: dict):
-    #result = run(inputs)
-    #print(result)
-    #return {"result": result}
-    return "test"
+
+    payload ={"text": "Im feeling depressed and Im not happy",
+            "user":"Diana",
+             "days":"12 days"
+            }
+
+    result = Sentiment().crew().kickoff(inputs=payload)
+
+    return {"result": result}
+    # return "test"

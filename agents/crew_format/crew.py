@@ -1,25 +1,11 @@
-from crewai import Agent, Crew, Process, Task
+from typing import List
+
 import dotenv
-import os
-import requests
-from crewai import Agent, Task, Crew, Process
-from crewai.tools import BaseTool
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool,WebsiteSearchTool,FileReadTool
-from textwrap import dedent
-from crewai import Agent, LLM
-import litellm
-from IPython.display import Markdown
-from langchain_openai import ChatOpenAI
-from openai import OpenAI
 from crewai import Crew, Process, Agent, Task
-from langchain.tools import tool
-from pydantic import BaseModel, Field, ConfigDict
-from textblob import TextBlob
-from typing import List, Dict, Any
-from langchain_openai import ChatOpenAI
-from sentiment import Sentimental_tool
-from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
+from crewai.project import CrewBase, agent, crew, task
+
+from agents.sentiment import Sentimental_tool
 
 dotenv.load_dotenv()
 

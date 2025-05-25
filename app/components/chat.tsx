@@ -7,7 +7,7 @@ export function ChatAgent() {
   const [greeting, setGreeting] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8001/api/greet?name=NextUser")
+    fetch("http://localhost:8000/api/greet?name=NextUser")
       .then((res) => res.json())
       .then((data) => setGreeting(data.message))
       .catch((err) => console.error("API error:", err));
@@ -16,7 +16,7 @@ export function ChatAgent() {
   return (
     <div>
       <p className="text-lg mb-4">{greeting}</p>
-      <CopilotKit runtimeUrl="http://localhost:8001/chat">
+      <CopilotKit runtimeUrl="http://localhost:8000/run">
     <CopilotChat
       instructions={"You are assisting the user as best as you can. Answer in the best way possible given the data you have."}
       labels={{
