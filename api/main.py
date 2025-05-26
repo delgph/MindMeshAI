@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 
-from agents.crew_format.crew import Sentiment
+
 from fastapi.middleware.cors import CORSMiddleware
+from agents import sentiment_analysis_agent
 
 app = FastAPI()
 
@@ -15,7 +16,6 @@ app.add_middleware(
 )
 
 
-
 @app.get("/api/greet")
 def greet(name: str = "World"):
     print(f"Greeting request received with name: {name}")
@@ -25,12 +25,23 @@ def greet(name: str = "World"):
 @app.post("/run/")
 async def run(inputs: dict):
 
-    payload ={"text": "Im feeling depressed and Im not happy",
-            "user":"Diana",
-             "days":"12 days"
-            }
+    payload = {
+        "text": "Im feeling depressed and Im not happy",
+        "user": "Diana",
+        "days": "12 days",
+    }
 
-    result = Sentiment().crew().kickoff(inputs=payload)
+    result = sentiment_analysis_agent.kickoff(inputs=payload)
 
     return {"result": result}
-    # return "test"
+
+
+# if __name__ == "__main__":
+#     payload = {
+#         "text": "Im feeling depressed and Im not happy",
+#         "user": "Diana",
+#         "days": "12 days",
+#     }
+#
+#     result = sentiment_analysis_agent.kickoff(inputs=payload)
+#     print(result)
