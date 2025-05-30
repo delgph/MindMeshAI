@@ -9,7 +9,7 @@ npm start &
 cd ..
 
 echo "Activating Python virtual environment..."
-source .venv/bin/activate
+source venv/bin/activate
 
 echo "Starting FastAPI backend on port 8000..."
 gunicorn server.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
