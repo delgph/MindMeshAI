@@ -6,8 +6,6 @@ npm run build
 echo "Starting Next.js frontend on port 3000..."
 npm start &
 
-cd ..
-
 echo "Activating Python virtual environment..."
 source venv/bin/activate
 
