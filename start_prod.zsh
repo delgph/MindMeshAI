@@ -1,6 +1,5 @@
 #!/bin/zsh
 echo "Building Next.js frontend..."
-cd mindmeshai-frontend
 npm install
 npm run build
 
