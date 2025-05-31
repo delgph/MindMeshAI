@@ -11,7 +11,7 @@ const serviceAdapter = new OpenAIAdapter();
 const runtime = new CopilotRuntime({
     // ...existing configuration
     remoteEndpoints: [
-        { url: "http://127.0.0.1:8000/copilotkit_remote" },
+        { url: "http://44.230.0.174:8000/copilotkit_remote" },
     ],
 });
 
